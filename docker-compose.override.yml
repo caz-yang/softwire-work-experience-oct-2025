@@ -1,0 +1,13 @@
+# This file contains development overrides for docker containers
+
+version: "2"
+services:
+  frontend:
+    command: npm run host:watch
+  backend:
+    command: npm run start:watch
+  database:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: g1raffe
+      POSTGRES_DB: default_database
