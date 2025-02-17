@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/game.css">
+        <script type="module" src = "../scripts/game.js"></script>
+
+        <title>Tetris Game</title>
+    </head>
+
+    <body>
+        <div class="tetris-container">
+            <canvas id="game-grid" class="game-component-container"></canvas>
+            <div id="game-sidebar">
+                <canvas id="upcoming-pieces-container" class="game-component-container"></canvas>
+                <div id="score-container" class="game-component-container">
+                    Score: <span id="score"></span>
+                </div>
+            </div>
+        </div>
+         
+    </body>
+</html>

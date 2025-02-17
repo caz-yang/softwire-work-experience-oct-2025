@@ -122,6 +122,15 @@ Once you are happy with your code, you can open GitHub in a browser and do the f
 - [Github repository](https://github.com/XakSenSoftwire/softwire-work-experience-feb-2025) - central location for all of our code
 - [Live site](https://softwire-work-experience-feb-2025-git-w-c7f8f8-wendifs-projects.vercel.app/)
 
+### Starting Exercises Links
+- [Free-form coding environment](https://liveweave.com/#)
+- [HTML/CSS Fundamentals](https://www.freecodecamp.org/learn/2022/responsive-web-design)
+- [JavaScript Fundamentals](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures-v8/)
+- [CSS Flexbox Exercises](https://flexboxfroggy.com/)
+- [JavaScript FizzBuzz](https://codingdojo.org/kata/FizzBuzz/)
+- [Git Fundamentals](https://learngitbranching.js.org/)
+- Ask us!
+
 ### Useful HTML/CSS/JavaScript Guides
 
 - [HTML basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)

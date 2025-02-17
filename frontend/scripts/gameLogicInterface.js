@@ -1,5 +1,4 @@
-const WIDTH = 10;
-const HEIGHT = 20;
+import { BOARD_UNITS_HEIGHT, BOARD_UNITS_WIDTH } from "./gameUI.js"
 
 export const Tetromino = {
 	I_Piece: "I_Piece",
@@ -76,7 +75,7 @@ function getRandomColour() {
 
 export const emptyGameState = {
 	// A 10x20 array full of null values
-	playfield: new Array(HEIGHT).fill(new Array(WIDTH).fill(null)),
+	playfield: new Array(BOARD_UNITS_HEIGHT).fill(new Array(BOARD_UNITS_WIDTH).fill(null)),
 	score: 0,
 	upcomingTetrominoes: Array.from({length: 3}, getRandomTetromino),
 	heldTetromino: null,
@@ -89,8 +88,8 @@ export const emptyGameState = {
 			};
 		}()),
 		position: {
-			x: (WIDTH - 4) / 2,
-			y: HEIGHT - 2, // Top row is reserved for game over
+			x: (BOARD_UNITS_WIDTH - 4) / 2,
+			y: BOARD_UNITS_HEIGHT - 1, // Top row is reserved for game over
 		},
 		colour: getRandomColour()
 	}
