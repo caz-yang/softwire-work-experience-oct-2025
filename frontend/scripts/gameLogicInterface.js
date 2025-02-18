@@ -202,8 +202,14 @@ export default function createGame(initialGameState = emptyGameState) {
 		/**
 		 * Rotate the current tetromino clockwise 90 degrees
 		 */
-		rotateTetrominoClockwise: function() {
-
+		rotateTetrominoClockwise: function rotation(activeTetromino) { 
+			let n = 4;
+			for (let i = 0; i < n; i++) {
+				for (let j = 0; j < i; j++) {
+					activeTetromino[j][n-1-i] = activeTetromino[i][j];
+				}
+			}
+        
 		},
 
 		/**
