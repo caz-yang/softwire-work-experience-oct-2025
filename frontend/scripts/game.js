@@ -7,6 +7,6 @@ function initialiseGame() {
     let game = createGame();
 
     drawGrid();
-
+    console.log(game.gameState.upcomingTetrominoes)
     console.log(game);
 }

@@ -164,9 +164,15 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Get any upcoming tetrominoes
 		 * @return {Array<Tetromino>}
 		 */
-		getUpcomingTetrominoes: function() {
 
-		},
+		getUpcomingTetrominoes: function() {
+			id= console.log(upcomingTetrominoes)
+			console.log(game.gameState.upcomingTetrominoes);	
+
+		}				
+		,
+	
+		
 
 		/**
 		 * Return the tetromino currently being held, if any
