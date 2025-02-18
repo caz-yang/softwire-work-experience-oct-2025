@@ -1,6 +1,5 @@
 import createGame  from "./gameLogicInterface.js"
-import { drawGrid, refreshGameDisplay } from "./gameUI.js"
-
+import { drawGrid, refreshGameDisplay, drawTiles } from "./gameUI.js"
 
 initialiseGame();
 
@@ -10,7 +9,7 @@ function initialiseGame() {
 
     drawGrid();
     updateScoreDisplay(game);
-
+    drawTiles(game);
 
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
@@ -43,4 +42,3 @@ function updateScoreDisplay(game) {
     document.getElementById("score").textContent=game.getScore()
 
 }
-

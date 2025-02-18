@@ -1,3 +1,5 @@
+import { Tetromino, TetrominoShapes , emptyGameState , } from "./gameLogicInterface.js";
+
 export const BOARD_UNITS_WIDTH = 10;
 export const BOARD_UNITS_HEIGHT = 20;
 const BOARD_UNIT_PIXEL_SIZE = 40;
@@ -34,7 +36,15 @@ function addHorizontalGameLines(gameContext) {
     }
 }
 
-
-function drawTiles(game) {
+function clearGrid() {
     
+}
+
+export function drawTiles(game) {
+    var gameCanvas=document.getElementById("game-grid");
+    for (let i=0; i < playfield ; i++){
+        console.log
+        for (let j=0 ; j<playfield; i++)
+    }
+
 }

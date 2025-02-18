@@ -12,7 +12,7 @@ export const Tetromino = {
 	T_Piece: "T_Piece",
 };
 
-const TetrominoShapes = {
+export const TetrominoShapes = {
 	I_Piece: [
         [0,0,1,0],
         [0,0,1,0],
