@@ -109,7 +109,7 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * @returns {boolean}
 		 */
 		isStateValid: function(newState) {
-			
+			return true
 		},
 
 		/**
@@ -128,7 +128,7 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * @return {boolean}
 		 */
 		isGameOver: function() {
-
+			return false
 		},
 
 		/**
