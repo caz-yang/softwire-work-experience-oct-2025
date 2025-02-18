@@ -5,7 +5,16 @@ initialiseGame();
 
 function initialiseGame() {
     let game = createGame();
+    addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+            console.log("left arrow has been pressed");
+            moveLeft();
 
+        }    
+
+    });
+    onkeydown = (event) => {};
+    
     drawGrid();
 
 
