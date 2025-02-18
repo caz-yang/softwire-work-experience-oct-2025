@@ -1,4 +1,5 @@
 import { BOARD_UNITS_HEIGHT, BOARD_UNITS_WIDTH } from "./gameUI.js"
+import { SCORE_PER_ROW_CLEAR } from "./settings.js";
 
 export const Tetromino = {
 	I_Piece: "I_Piece",
@@ -225,6 +226,48 @@ export default function createGame(initialGameState = emptyGameState) {
 		 */
 		holdCurrentTetromino: function() {
 
+		},
+
+		/**
+		 * Check for any full rows in the game board and clear them, also updates score
+		 */
+		scoreRows: function() {
+			// check for rows
+			let filled_rows = [];
+
+			for (let i = 0; i < BOARD_UNITS_HEIGHT; i++) {
+				let row = this.gameState.playfield[i];
+
+				let all_filled = true;
+
+				for (let j = 0; j < BOARD_UNITS_WIDTH; j++) {
+					if (row[j] == null) {
+						all_filled = false;
+					}
+				}
+
+				if (all_filled) {
+					filled_rows.push(i);
+				}
+			}
+
+			console.log(filled_rows.length)
+			console.log(filled_rows)
+
+			// clear rows and update score
+			filled_rows.forEach((idx) => {
+				this.gameState.playfield[idx] = new Array(BOARD_UNITS_WIDTH).fill(null);
+				this.gameState.score += SCORE_PER_ROW_CLEAR;  // TODO: clearing multiple rows at once gives bigger score
+			})
+
+
+			// move down
+			for (let i = filled_rows.length - 1; i >= 0; i--) { 
+				for (let j = filled_rows[i]+(filled_rows.length - i - 1); j > 0; j--) {
+					this.gameState.playfield[j] = this.gameState.playfield[j-1].slice();
+				}
+				this.gameState.playfield[0] = new Array(BOARD_UNITS_WIDTH).fill(null);
+			}
 		},
 	};
 
