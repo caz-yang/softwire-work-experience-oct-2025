@@ -147,6 +147,7 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * @return {int}
 		 */
 		getScore: function() {
+			return this.gameState.score
 
 		},
 
