@@ -251,9 +251,6 @@ export default function createGame(initialGameState = emptyGameState) {
 				}
 			}
 
-			console.log(filled_rows.length)
-			console.log(filled_rows)
-
 			// clear rows and update score
 			filled_rows.forEach((idx) => {
 				this.gameState.playfield[idx] = new Array(BOARD_UNITS_WIDTH).fill(null);
