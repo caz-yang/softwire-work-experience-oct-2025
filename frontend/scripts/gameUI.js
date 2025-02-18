@@ -29,3 +29,12 @@ function addHorizontalGameLines(gameContext) {
         gameContext.lineTo(BOARD_WIDTH, yPosition);
     }
 }
+
+
+function clearGrid() {
+    
+}
+
+function drawTiles(game) {
+    
+}

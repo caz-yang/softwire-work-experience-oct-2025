@@ -99,6 +99,19 @@ export default function createGame(initialGameState = emptyGameState) {
 	const tetrisGame = {
 		gameState: initialGameState,
 
+		
+		gameState: initialGameState,
+		/**
+		 * Checks if a new active tetromino state is possible
+		 *
+		 * The paramenter newState is the same format as `activeTetromino` in the gameState object
+		 * @param {object} newState
+		 * @returns {boolean}
+		 */
+		isStateValid: function(newState) {
+			
+		},
+
 		/**
 		 * Progress the game forward one timestep
 		 */
