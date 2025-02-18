@@ -257,14 +257,14 @@ export default function createGame(initialGameState = emptyGameState) {
 				this.gameState.score += SCORE_PER_ROW_CLEAR;  // TODO: clearing multiple rows at once gives bigger score
 			})
 
-
 			// move down
-			for (let i = filled_rows.length - 1; i >= 0; i--) { 
-				for (let j = filled_rows[i]+(filled_rows.length - i - 1); j > 0; j--) {
+			filled_rows.forEach((filled_row_idx) => {
+				for (let j = filled_row_idx; j > 0; j--) {
 					this.gameState.playfield[j] = this.gameState.playfield[j-1].slice();
 				}
 				this.gameState.playfield[0] = new Array(BOARD_UNITS_WIDTH).fill(null);
-			}
+			});
+
 		},
 	};
 
