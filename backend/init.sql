@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS tetris_scores (
+    id SERIAL PRIMARY KEY,
+    score INTEGER NOT NULL
+);
