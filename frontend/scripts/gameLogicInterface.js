@@ -138,8 +138,29 @@ export default function createGame(initialGameState = emptyGameState) {
 		 *
 		 * Possible colours: "cyan, blue, orange, yellow, green, purple, red"
 		 */
-		getTileAtPosition: function(x, y) {
+		 getTileAtPosition: function(x, y) {
+			for (let rows = 0 ; rows < emptyGameState.activeTetromino[x] ; rows++) {
+				for (let cols = 0 ; cols < emptyGameState.activeTetromino[y] ; cols++){
+					if (emptyGameState.activeTetromino[x][y] == 0) {
+						console.log("This is null")
+					}
+					else {
+						console.log("This is something")
+					}
 
+			}
+		}		
+			if (this.gameState.playfield[x][y] == null ) {
+				const tileColor = this.gameState.playfield[x][y]
+				return tileColor
+			}
+			if (1==1){
+				emptyGameState.activeTetromino[x][y]
+			}
+
+			else  {				
+				return null
+			}
 		},
 
 		/**

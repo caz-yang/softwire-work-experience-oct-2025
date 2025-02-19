@@ -1,4 +1,4 @@
-import { Tetromino, TetrominoShapes , emptyGameState , } from "./gameLogicInterface.js";
+
 
 export const BOARD_UNITS_WIDTH = 10;
 export const BOARD_UNITS_HEIGHT = 20;
@@ -39,12 +39,26 @@ function clearGrid() {
 
 export function drawTiles(game) {
     var gameCanvas=document.getElementById("game-grid");
-    for (let i=0; i < playfield ; i++){
-        console.log
-        for (let j=0 ; j<playfield; i++)
+    var ctx = gameCanvas.getContext("2d")
+    for (let rows = 0 ; rows < BOARD_UNITS_WIDTH ; rows++) {
+        for (let cols = 0 ; cols < BOARD_UNITS_HEIGHT ; cols++){
+            if (game.getTileAtPosition(rows,cols) != null){
+                ctx.beginPath();
+                ctx.lineWidth = "1";
+                ctx.strokeStyle = game.getTileAtPosition(rows,cols);
+                ctx.rect(rows , cols , 31 , 21);
+                ctx.stroke();
+                 }
+
+            else {
+                
+            }
+            }
+        }
     }
 
-}
+    
+
 
 function drawSquare(x, y, colour) {
 

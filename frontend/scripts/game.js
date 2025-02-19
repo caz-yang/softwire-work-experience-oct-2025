@@ -11,5 +11,7 @@ function initialiseGame() {
     console.log(game);
     
     drawTiles(game);
+
+    console.log(game.getTileAtPosition(0,0))
 }
 
