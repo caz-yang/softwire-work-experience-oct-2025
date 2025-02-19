@@ -1,5 +1,6 @@
 import { BOARD_UNITS_HEIGHT, BOARD_UNITS_WIDTH } from "./gameUI.js"
-import { SCORE_PER_ROW_CLEAR } from "./settings.js";
+
+const SCORE_PER_ROW_CLEAR = 100
 
 export const Tetromino = {
 	I_Piece: "I_Piece",
@@ -119,6 +120,7 @@ export default function createGame(initialGameState = emptyGameState) {
 		gameTick: function() {
 			// 1: Move currently active piece down
 			// 2: Lock piece in place if it can't move down anymore
+			this.scoreRows();
 			// 3: Clear any full lines
 			// 4: Increase score
 			// 5: Get new piece from upcoming tetrominoes
@@ -232,39 +234,18 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Check for any full rows in the game board and clear them, also updates score
 		 */
 		scoreRows: function() {
-			// check for rows
-			let filled_rows = [];
+			// iterate in reverse as removing elements during loop
+			for (let row_ind = BOARD_UNITS_HEIGHT - 1; row_ind >= 0; row_ind--) {
+				let row = this.gameState.playfield[row_ind];
 
-			for (let i = 0; i < BOARD_UNITS_HEIGHT; i++) {
-				let row = this.gameState.playfield[i];
-
-				let all_filled = true;
-
-				for (let j = 0; j < BOARD_UNITS_WIDTH; j++) {
-					if (row[j] == null) {
-						all_filled = false;
-					}
-				}
+				let all_filled = !(row.includes(null));
 
 				if (all_filled) {
-					filled_rows.push(i);
+					this.gameState.playfield.splice(row_ind, 1);  // remove row
+					this.gameState.score += SCORE_PER_ROW_CLEAR;
+					this.gameState.playfield.push(new Array(BOARD_UNITS_WIDTH).fill(null));  // add empty row
 				}
 			}
-
-			// clear rows and update score
-			filled_rows.forEach((idx) => {
-				this.gameState.playfield[idx] = new Array(BOARD_UNITS_WIDTH).fill(null);
-				this.gameState.score += SCORE_PER_ROW_CLEAR;  // TODO: clearing multiple rows at once gives bigger score
-			})
-
-			// move down
-			filled_rows.forEach((filled_row_idx) => {
-				for (let j = filled_row_idx; j > 0; j--) {
-					this.gameState.playfield[j] = this.gameState.playfield[j-1].slice();
-				}
-				this.gameState.playfield[0] = new Array(BOARD_UNITS_WIDTH).fill(null);
-			});
-
 		},
 	};
 

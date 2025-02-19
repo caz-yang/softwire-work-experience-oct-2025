@@ -1,1 +1,0 @@
-export const SCORE_PER_ROW_CLEAR = 100
