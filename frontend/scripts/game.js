@@ -8,7 +8,10 @@ function initialiseGame() {
     let game = createGame();
 
     drawGrid();
-    document.getElementById("score").textContent=game.getScore()
+
+    function updateScoreDisplay(gameScore) {
+        document.getElementById("score").textContent=game.getScore()
+    }
 
     console.log(game);
 }
