@@ -9,8 +9,5 @@ function initialiseGame() {
     drawGrid();
 
 
-    game.updateActiveTetromino()
-
-
     console.log(game);
 }

@@ -227,15 +227,6 @@ export default function createGame(initialGameState = emptyGameState) {
 
 		},
 
-		updateActiveTetromino: function() {
-			
-			this.gameState.activeTetromino.name = this.gameState.upcomingTetrominoes.shift()
-			this.gameState.activeTetromino.tiles = TetrominoShapes[this.gameState.activeTetromino.name]
-
-			// add tetromino to list of upcoming ones
-			this.gameState.upcomingTetrominoes.push(getRandomTetromino())
-			
-		}
 
 	};
 

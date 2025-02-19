@@ -1,7 +1,6 @@
 #button{
     padding: 5px;
     background-color: lightgray;
-
 }
 
 #howToPlayContainer{
@@ -12,19 +11,17 @@
     background-color: rgba(255, 192, 203, 0.818);
     text-align: center;
     justify-content:center;
-    
- 
-    
-
-
 }
+
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    background-color: lightyellow;
 }
+
 img{
     width: 400px;
     height: 250px;
