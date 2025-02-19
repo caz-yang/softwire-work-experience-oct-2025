@@ -5,19 +5,20 @@ initialiseGame();
 
 function initialiseGame() {
     let game = createGame();
-    addEventListener("keydown", (event) => {
+
+    document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
-            console.log("left arrow has been pressed");
-            moveLeft();
-
-        }    
-
+            console.log("Left arrow has been pressed");
+            game.moveLeft();
+        }
+        if (event.key === "ArrowRight"){
+            console.log("Right arrow has been pressed");
+            game.moveRight();
+        }
     });
-    onkeydown = (event) => {};
-    
+
     drawGrid();
-
-
+    
     console.log(game);
 
     window.setInterval(() => {
