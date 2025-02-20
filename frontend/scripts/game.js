@@ -52,7 +52,10 @@ function initialiseGame() {
 }
 
 function checkGameOver(game) {
-
+    if (game.isGameOver()) {
+        const score = game.getScore(); 
+        window.location.href = `gameOver.html?score=${score}`; 
+    }
 }
 
 function updateScoreDisplay(game) {
