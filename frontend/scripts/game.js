@@ -9,7 +9,7 @@ function initialiseGame() {
     console.log(game);
 
     drawGrid();
-    updateScoreDisplay();
+    updateScoreDisplay(game);
 
 
     document.addEventListener("keydown", (event) => {
@@ -34,6 +34,6 @@ function checkGameOver(game) {
 
 }
 
-function updateScoreDisplay() {
+function updateScoreDisplay(game) {
     document.getElementById("score").textContent=game.getScore()
 }
