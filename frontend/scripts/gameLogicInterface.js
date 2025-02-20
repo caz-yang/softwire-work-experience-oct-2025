@@ -111,7 +111,30 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * @returns {boolean}
 		 */
 		isStateValid: function(newState) {
-			return true
+			for (let row = 0; row < 4; row++) {
+				for (let col = 0; col < 4; col++) {
+					if (newState.tiles[row][col] == 0) {
+						continue;
+					}
+					let playfield_col = newState.position.x + col;
+					let playfield_row = newState.position.y - row;
+
+					// check boundaries 
+					if (playfield_col < 0 || playfield_col >= BOARD_UNITS_WIDTH) {
+						return false;
+					}
+					if (playfield_row < 0 || playfield_row >= BOARD_UNITS_HEIGHT) {
+						return false;
+					}
+
+					// check existing blocks
+					if (this.gameState.playfield[playfield_row][playfield_col] != null) {
+						return false;
+					}
+
+				}
+			}
+			return true;					
 		},
 
 		/**
