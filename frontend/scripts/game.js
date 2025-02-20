@@ -1,6 +1,7 @@
 import createGame  from "./gameLogicInterface.js"
 import { drawGrid, refreshGameDisplay } from "./gameUI.js"
 
+
 initialiseGame();
 
 function initialiseGame() {
@@ -29,5 +30,9 @@ function initialiseGame() {
 }
 
 function checkGameOver(game) {
-    
+
+}
+
+function updateScoreDisplay(gameScore) {
+    document.getElementById("score").textContent=game.getScore()
 }
