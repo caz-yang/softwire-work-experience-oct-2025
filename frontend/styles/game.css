@@ -6,6 +6,31 @@ body {
     display: flex;
     justify-content: center;
     padding: 5px;
+<<<<<<< HEAD
+}
+
+.game-component-container {
+    border: 3px solid black;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+#game-grid {
+    background-color: lightblue;
+}
+
+#game-sidebar {
+    flex-direction: column;
+}
+#upcoming-tetromino-container {
+    width: 200px;
+    height: 300px;
+}
+
+#score-container {
+    padding: 5px;
+    background-color: lightgray;
+=======
 
     .game-component-container {
         border: 3px solid black;
@@ -29,5 +54,6 @@ body {
             background-color: lightgray;
         }
     }
+>>>>>>> main
 }
 
