@@ -21,7 +21,12 @@ function initialiseGame() {
             console.log("Right arrow has been pressed");
             game.moveRight();
         }
+        if (event.key === "ArrowDown") {
+            console.log("Down arrow has been pressed");
+            game.moveDown(); 
+        }
     });
+
 
     window.setInterval(() => {
         game.gameTick();
@@ -38,3 +43,4 @@ function updateScoreDisplay(game) {
     document.getElementById("score").textContent=game.getScore()
 
 }
+
