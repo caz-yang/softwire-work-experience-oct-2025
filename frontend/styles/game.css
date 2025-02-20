@@ -1,11 +1,12 @@
 body {
-    background-color: lightyellow
+    background-color: #ffffe0
 }
 
 .tetris-container {
     display: flex;
     justify-content: center;
     padding: 5px;
+<<<<<<< HEAD
 }
 
 .game-component-container {
@@ -29,5 +30,30 @@ body {
 #score-container {
     padding: 5px;
     background-color: lightgray;
+=======
+
+    .game-component-container {
+        border: 3px solid black;
+        border-radius: 3px;
+        margin: 5px;
+    }
+
+    #game-grid {
+        background-color: lightblue;
+    }
+
+    #game-sidebar {
+        flex-direction: column;
+        
+        #upcoming-pieces-container {
+            background-color: lightpink;
+        }
+    
+        #score-container {
+            padding: 5px;
+            background-color: lightgray;
+        }
+    }
+>>>>>>> main
 }
 
