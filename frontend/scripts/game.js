@@ -8,6 +8,7 @@ function initialiseGame() {
 
     drawGrid();
 
+
     console.log(game);
 
     window.setInterval(() => {
