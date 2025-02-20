@@ -224,17 +224,6 @@ export default function createGame(initialGameState = emptyGameState) {
 			}
 		},
           
-
-        moveDown: function() {
-			let { x, y } = this.gameState.activeTetromino.position;
-			let newPosition = { x, y: y - 1 };
-			let newState = {	...this.gameState.activeTetromino, position: newPosition
-			};
-			if (this.isStateValid(newState)) {
-				this.gameState.activeTetromino.position = newState; 
-			}
-		},          
-
 		moveDown: function() {
 			let { x, y } = this.gameState.activeTetromino.position;
 			let newPosition = { x, y: y - 1 };
