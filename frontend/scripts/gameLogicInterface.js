@@ -255,7 +255,7 @@ export default function createGame(initialGameState = emptyGameState) {
 
 				// add tetromino to list of upcoming ones
 			this.gameState.upcomingTetrominoes.push(getRandomTetromino())
-		}
+		},
 
 
 		/**
