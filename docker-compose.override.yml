@@ -1,4 +1,3 @@
-
 # This file contains development overrides for docker containers
 
 version: "2"
