@@ -118,12 +118,7 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Progress the game forward one timestep
 		 */
 		gameTick: function() {
-			// 1: Move currently active piece down
-			// 2: Lock piece in place if it can't move down anymore
 			this.scoreRows();
-			// 3: Clear any full lines
-			// 4: Increase score
-			// 5: Get new piece from upcoming tetrominoes
 		},
 
 		/**
