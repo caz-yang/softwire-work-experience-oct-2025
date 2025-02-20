@@ -8,6 +8,9 @@ function initialiseGame() {
     let game = createGame();
     console.log(game);
 
+    var audio = new Audio('../assets/Tetris.mp3')
+    audio.play();
+    audio.loop = true
     drawGrid();
     updateScoreDisplay(game);
 
