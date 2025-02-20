@@ -31,6 +31,7 @@ function initialiseGame() {
         if (event.key === "ArrowUp") {
             console.log("Up arrow has been pressed");
             game.rotateTetrominoClockwise();
+        }
         if (event.key === "x") {
             console.log("X key has been pressed");
             game.rotateTetrominoAntiClockwise();
