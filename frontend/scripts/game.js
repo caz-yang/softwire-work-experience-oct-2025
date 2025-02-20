@@ -1,5 +1,5 @@
 import createGame  from "./gameLogicInterface.js"
-import { drawGrid } from "./gameUI.js"
+import { drawGrid, refreshGameDisplay } from "./gameUI.js"
 
 initialiseGame();
 
@@ -9,4 +9,14 @@ function initialiseGame() {
     drawGrid();
 
     console.log(game);
+
+    window.setInterval(() => {
+        game.gameTick();
+        refreshGameDisplay(game);
+        checkGameOver(game);
+    }, 1000);
+}
+
+function checkGameOver(game) {
+    
 }
