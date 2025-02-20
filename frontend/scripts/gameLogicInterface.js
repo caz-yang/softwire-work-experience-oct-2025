@@ -208,10 +208,25 @@ export default function createGame(initialGameState = emptyGameState) {
 			let newState = {	...this.gameState.activeTetromino, position: newPosition
 			};
 			if (this.isStateValid(newState)) {
-				this.gameState.activeTetromino.position = newState;
-			    
-		}
+				this.gameState.activeTetromino.position = newState; 
+			}
 		},          
+
+		moveDown: function() {
+			let { x, y } = this.gameState.activeTetromino.position;
+			let newPosition = { x, y: y - 1 };
+			let newState = {
+				...this.gameState.activeTetromino,
+				position: {
+					x: newPosition.x,
+					y: newPosition.y
+				}
+			}
+
+			if (this.isStateValid(newState)) {
+				this.gameState.activeTetromino = newState;
+			}
+		},
 
 
 		/**
@@ -266,7 +281,7 @@ export default function createGame(initialGameState = emptyGameState) {
 
 				// add tetromino to list of upcoming ones
 			this.gameState.upcomingTetrominoes.push(getRandomTetromino())
-		}
+		},
 
 
 		/**
