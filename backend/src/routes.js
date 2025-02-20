@@ -10,4 +10,18 @@ router.get(
   }
 );
 
+router.get(
+  '/api/scores',
+  (req, res) => {
+    controller.getScores(res, req.body);
+  }
+);
+
+router.post(
+  '/api/save-score',
+  (req, res) => {
+    controller.postScore(res, req.body);
+  }
+)
+
 export default router;
