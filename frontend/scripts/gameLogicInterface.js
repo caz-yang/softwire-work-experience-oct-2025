@@ -186,15 +186,35 @@ export default function createGame(initialGameState = emptyGameState) {
 		/**
 		 * Move the current tetromino left 1 tile
 		 */
-		moveLeft: function() {
 
+		moveLeft: function() {
+			if (this.isStateValid({
+				...this.gameState.activeTetromino,
+				position: {
+					x: this.gameState.activeTetromino.position.x - 1,
+					y: this.gameState.activeTetromino.position.y		
+				}
+			})) 			
+			{
+				this.gameState.activeTetromino.position.x -= 1;
+			}
 		},
 
 		/**
 		 * Move the current tetromino right 1 tile
 		 */
+		
 		moveRight: function() {
-
+			if (this.isStateValid({
+				...this.gameState.activeTetromino,
+				position: {
+					x: this.gameState.activeTetromino.position.x + 1,
+					y: this.gameState.activeTetromino.position.y
+				}
+			}))
+			{
+				this.gameState.activeTetromino.position.x += 1;
+			}
 		},
 
 		/**
