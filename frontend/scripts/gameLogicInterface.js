@@ -10,6 +10,9 @@ export const Tetromino = {
 	S_Piece: "S_Piece",
 	Z_Piece: "Z_Piece",
 	T_Piece: "T_Piece",
+
+
+
 };
 
 export const TetrominoShapes = {
@@ -202,9 +205,15 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Get any upcoming tetrominoes
 		 * @return {Array<Tetromino>}
 		 */
-		getUpcomingTetrominoes: function() {
 
-		},
+		getUpcomingTetrominoes: function() {
+			id= console.log(upcomingTetrominoes)
+			console.log(game.gameState.upcomingTetrominoes);	
+
+		}				
+		,
+	
+		
 
 		/**
 		 * Return the tetromino currently being held, if any
@@ -240,17 +249,6 @@ export default function createGame(initialGameState = emptyGameState) {
 			}
 		},
           
-
-        moveDown: function() {
-			let { x, y } = this.gameState.activeTetromino.position;
-			let newPosition = { x, y: y - 1 };
-			let newState = {	...this.gameState.activeTetromino, position: newPosition
-			};
-			if (this.isStateValid(newState)) {
-				this.gameState.activeTetromino.position = newState; 
-			}
-		},          
-
 		moveDown: function() {
 			let { x, y } = this.gameState.activeTetromino.position;
 			let newPosition = { x, y: y - 1 };
@@ -286,15 +284,31 @@ export default function createGame(initialGameState = emptyGameState) {
 		/**
 		 * Rotate the current tetromino clockwise 90 degrees
 		 */
-		rotateTetrominoClockwise: function() {
-
+		
+	    rotateTetrominoClockwise: function() { 
+			let clockwiseRotated = new Array(4).fill(new Array(4).fill(null))
+			
+			console.log("Rotate clockwise");
+			let n = 4; 
+			for (let activeRowIndex = 0; activeRowIndex < n; activeRowIndex++) {
+				for (let activeColumnIndex = 0; activeColumnIndex < n; activeColumnIndex++) {
+					clockwiseRotated[activeColumnIndex][n-1-activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
+				}
+			}
 		},
 
 		/**
 		 * Rotate the current tetromino anti-clockwise 90 degrees
 		 */
 		rotateTetrominoAntiClockwise: function() {
-
+			let anticlockwiseRotated = new Array(4).fill(new Array(4).fill(null))
+         console.log("Rotate anti-clockwise");
+		 let n=4;
+		 for (let activeRowIndex=0; activeRowIndex<n; activeRowIndex++) {
+			 for (let activeColumnIndex=0; activeColumnIndex<n; activeColumnIndex++) {
+				anticlockwiseRotated[n-1-activeColumnIndex][activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
+			 }
+		 }
 		},
 
 		/**
@@ -308,7 +322,11 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Hold the current tetromino, swapping it for any currently held one
 		 */
 		holdCurrentTetromino: function() {
-
+			if (this.gameState.heldTetromino == null){
+				this.updateActiveTetromino()
+			} else {
+				this.gameState.activeTetromino, this.gameState.heldTetromino = this.gameState.heldTetromino, this.gameState.activeTetromino
+			}
 		},
 
 		updateActiveTetromino: function() {
@@ -327,6 +345,8 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Check for any full rows in the game board and clear them, also updates score
 		 */
 		scoreRows: function() {
+			let cleared_rows = 0;
+
 			// iterate in reverse as removing elements during loop
 			for (let row_ind = BOARD_UNITS_HEIGHT - 1; row_ind >= 0; row_ind--) {
 				let row = this.gameState.playfield[row_ind];
@@ -334,14 +354,20 @@ export default function createGame(initialGameState = emptyGameState) {
 				let all_filled = !(row.includes(null));
 
 				if (all_filled) {
+					cleared_rows++;
 					this.gameState.playfield.splice(row_ind, 1);  // remove row
-					this.gameState.score += SCORE_PER_ROW_CLEAR;
 					this.gameState.playfield.push(new Array(BOARD_UNITS_WIDTH).fill(null));  // add empty row
 				}
 			}
+
+				const SCORE_PER_ROW = 40;	
+				const SCORE_MULTIPLIER = [0, 1, 2.5, 7.5, 300];
+				if(cleared_rows > 0 && cleared_rows < 4) {
+					this.gameState.score += SCORE_PER_ROW * SCORE_MULTIPLIER[cleared_rows];
+				}
+			
 		},
 
 	};
-
 	return tetrisGame;
 };
