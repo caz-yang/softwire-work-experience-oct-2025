@@ -11,14 +11,6 @@ function initialiseGame() {
     drawGrid();
     updateScoreDisplay(game);
 
-    document.addEventListener("keypress", (event) => {
-        if (event.key == "c") {
-            game.holdCurrentTetromino()
-        }
-    });
-
-            
-
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
             console.log("Left arrow has been pressed");
@@ -27,6 +19,9 @@ function initialiseGame() {
         if (event.key === "ArrowRight"){
             console.log("Right arrow has been pressed");
             game.moveRight();
+        }
+        if (event.key == "c") {
+            game.holdCurrentTetromino()
         }
     });
 
