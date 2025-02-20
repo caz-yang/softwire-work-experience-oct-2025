@@ -255,13 +255,15 @@ export default function createGame(initialGameState = emptyGameState) {
 
 				// add tetromino to list of upcoming ones
 			this.gameState.upcomingTetrominoes.push(getRandomTetromino())
-		}
+		},
 
 
 		/**
 		 * Check for any full rows in the game board and clear them, also updates score
 		 */
 		scoreRows: function() {
+			let cleared_rows = 0;
+
 			// iterate in reverse as removing elements during loop
 			for (let row_ind = BOARD_UNITS_HEIGHT - 1; row_ind >= 0; row_ind--) {
 				let row = this.gameState.playfield[row_ind];
@@ -269,11 +271,18 @@ export default function createGame(initialGameState = emptyGameState) {
 				let all_filled = !(row.includes(null));
 
 				if (all_filled) {
+					cleared_rows++;
 					this.gameState.playfield.splice(row_ind, 1);  // remove row
-					this.gameState.score += SCORE_PER_ROW_CLEAR;
 					this.gameState.playfield.push(new Array(BOARD_UNITS_WIDTH).fill(null));  // add empty row
 				}
 			}
+
+				const SCORE_PER_ROW = 40;	
+				const SCORE_MULTIPLIER = [0, 1, 2.5, 7.5, 300];
+				if(cleared_rows > 0 && cleared_rows < 4) {
+					this.gameState.score += SCORE_PER_ROW * SCORE_MULTIPLIER[cleared_rows];
+				}
+			
 		},
 
 	};
