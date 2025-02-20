@@ -36,7 +36,6 @@ function addHorizontalGameLines(gameContext) {
     }
 }
 
-
 function clearGrid() {
     
 }
@@ -57,12 +56,11 @@ export function drawTiles(game) {
 }
 
 export function drawUpcomingTetrominoes(game){
-    const upcomingTetrominoes = game.gameState.upcomingTetrominoes;
+    const upcomingTetrominoes = game.getUpcomingTetrominoes();
     const canvas = document.getElementById("upcoming-pieces-canvas");
     const ctx = canvas.getContext("2d");
     ctx.canvas.height = 300;
     ctx.canvas.width = 200;
-    const gridSize = 20;
 
     upcomingTetrominoes.forEach((upcomingTetromino, index) => {
         const xPos = 1;

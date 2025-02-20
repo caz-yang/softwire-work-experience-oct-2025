@@ -10,9 +10,6 @@ export const Tetromino = {
 	S_Piece: "S_Piece",
 	Z_Piece: "Z_Piece",
 	T_Piece: "T_Piece",
-
-
-
 };
 
 export const TetrominoShapes = {
@@ -104,8 +101,6 @@ export default function createGame(initialGameState = emptyGameState) {
 	const tetrisGame = {
 		gameState: initialGameState,
 
-		
-		gameState: initialGameState,
 		/**
 		 * Checks if a new active tetromino state is possible
 		 *
@@ -152,7 +147,7 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * @return {boolean}
 		 */
 		isGameOver: function() {
-			return false
+			return this.gameState.isGameOver;
 		},
 
 		/**
@@ -187,8 +182,7 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * @return {int}
 		 */
 		getScore: function() {
-			return this.gameState.score
-
+			return this.gameState.score;
 		},
 
 		/**
@@ -207,12 +201,8 @@ export default function createGame(initialGameState = emptyGameState) {
 		 */
 
 		getUpcomingTetrominoes: function() {
-			id= console.log(upcomingTetrominoes)
-			console.log(game.gameState.upcomingTetrominoes);	
-
-		}				
-		,
-	
+			return this.gameState.upcomingTetrominoes;
+		},
 		
 
 		/**

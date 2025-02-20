@@ -10,6 +10,7 @@ function initialiseGame() {
     var audio = new Audio('../assets/Tetris.mp3')
     audio.play();
     audio.loop = true
+
     drawGrid();
     drawUpcomingTetrominoes(game)
     updateScoreDisplay(game);
@@ -28,7 +29,6 @@ function initialiseGame() {
            console.log("c has been pressed");  
           game.holdCurrentTetromino()
         }
-
         if (event.key === "ArrowDown") {
             console.log("Down arrow has been pressed");
             game.moveDown(); 
