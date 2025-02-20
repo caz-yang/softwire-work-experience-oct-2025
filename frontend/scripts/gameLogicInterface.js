@@ -364,8 +364,6 @@ export default function createGame(initialGameState = emptyGameState) {
 				}
 			}
 			this.updateActiveTetromino();
-			console.log(this.gameState.activeTetromino.position);
-			console.log(this.gameState.playfield);
 		},
 
 		/**

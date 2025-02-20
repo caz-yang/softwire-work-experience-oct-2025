@@ -48,7 +48,6 @@ function initialiseGame() {
             refreshGameDisplay(game);
         }
         if (event.key === " ") {
-            console.log("Spacebar pressed");
             game.instantDropTetromino();
         }
     });
