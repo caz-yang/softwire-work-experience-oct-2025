@@ -8,6 +8,9 @@ export const Tetromino = {
 	S_Piece: "S_Piece",
 	Z_Piece: "Z_Piece",
 	T_Piece: "T_Piece",
+
+
+
 };
 
 const TetrominoShapes = {
@@ -207,30 +210,26 @@ export default function createGame(initialGameState = emptyGameState) {
 			let clockwiseRotated = new Array(4).fill(new Array(4).fill(null))
 			
 			console.log("Rotate clockwise");
-			let n = 4;
-			for (let i = 0; i < n; i++) {
-				for (let j = 0; j < n; j++) {
-					clockwiseRotated[j][n-1-i] = this.gameState.activeTetromino.tiles[i][j];
+			let n = 4; 
+			for (let activeRowIndex = 0; activeRowIndex < n; activeRowIndex++) {
+				for (let activeColumnIndex = 0; activeColumnIndex < n; activeColumnIndex++) {
+					clockwiseRotated[activeColumnIndex][n-1-activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
 				}
 			}
-        this.gameState.activeTetromino.tiles = clockwiseRotated;
-		this.isStateValid(this.gameState);
 		},
 
 		/**
 		 * Rotate the current tetromino anti-clockwise 90 degrees
 		 */
 		rotateTetrominoAntiClockwise: function() {
-			let anticlockwiseRotated = [[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null]];
+			let anticlockwiseRotated = new Array(4).fill(new Array(4).fill(null))
          console.log("Rotate anti-clockwise");
 		 let n=4;
-		 for (let i=0; i<n; i++) {
-			 for (let j=0; j<n; j++) {
-				anticlockwiseRotated[n-1-j][i] = this.gameState.activeTetromino.tiles[i][j];
+		 for (let activeRowIndex=0; activeRowIndex<n; activeRowIndex++) {
+			 for (let activeColumnIndex=0; activeColumnIndex<n; activeColumnIndex++) {
+				anticlockwiseRotated[n-1-activeColumnIndex][activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
 			 }
 		 }
-		 this.gameState.activeTetromino.tiles = anticlockwiseRotated;
-		 this.isStateValid(this.gameState);
 		},
 
 		/**
