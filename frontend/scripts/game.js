@@ -11,6 +11,16 @@ function initialiseGame() {
     drawGrid();
     updateScoreDisplay(game);
 
+    document.addEventListener("keypress", (event) => {
+        if (event.key == "c") {
+            game.holdCurrentTetromino()
+        }
+
+
+
+    });
+
+            
 
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
