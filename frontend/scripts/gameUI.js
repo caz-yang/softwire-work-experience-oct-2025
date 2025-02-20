@@ -25,43 +25,32 @@ function addVerticalGameLines(gameContext) {
     for (var xPosition=0; xPosition<=BOARD_WIDTH; xPosition = xPosition + BOARD_UNIT_PIXEL_SIZE) {
         gameContext.moveTo(xPosition, 0);
         gameContext.lineTo(xPosition, BOARD_HEIGHT);
-
     }
+}
 
-    function addVerticalGameLines(gameContext) {
-        for (var xPosition=0; xPosition<=BOARD_WIDTH; xPosition = xPosition + BOARD_UNIT_PIXEL_SIZE) {
-            gameContext.moveTo(xPosition, 0);
-            gameContext.lineTo(xPosition, BOARD_HEIGHT);
-        }
+function addHorizontalGameLines(gameContext) {
+    for (var yPosition = 0; yPosition <= BOARD_HEIGHT; yPosition = yPosition + BOARD_UNIT_PIXEL_SIZE) {
+        gameContext.moveTo(0, yPosition);
+        gameContext.lineTo(BOARD_WIDTH, yPosition);
     }
-
-    function addHorizontalGameLines(gameContext) {
-        for (var yPosition = 0; yPosition <= BOARD_HEIGHT; yPosition = yPosition + BOARD_UNIT_PIXEL_SIZE) {
-            gameContext.moveTo(0, yPosition);
-            gameContext.lineTo(BOARD_WIDTH, yPosition);
-        }
-    }
+}
 
 
-    function clearGrid() {
-        
-    }
+function clearGrid() {
+    
+}
 
-    export function drawTiles(game) {
-        var gameCanvas=document.getElementById("game-grid");
-        var ctx = gameCanvas.getContext("2d")
-        for (let rows = 0 ; rows < BOARD_UNITS_WIDTH ; rows++) {
-            for (let cols = 0 ; cols < BOARD_UNITS_HEIGHT ; cols++){
-                let tileColour = game.getTileAtPosition(rows,cols)
-                if (tileColour != null) {
-                    ctx.strokeStyle = tileColour;
-                    ctx.fillStyle = tileColour;
-                    ctx.fillRect(BOARD_UNIT_PIXEL_SIZE*rows , BOARD_UNIT_PIXEL_SIZE*cols , BOARD_UNIT_PIXEL_SIZE, BOARD_UNIT_PIXEL_SIZE);
-                    }
-                
-                }
-
+export function drawTiles(game) {
+    var gameCanvas=document.getElementById("game-grid");
+    var ctx = gameCanvas.getContext("2d")
+    for (let rows = 0 ; rows < BOARD_UNITS_WIDTH ; rows++) {
+        for (let cols = 0 ; cols < BOARD_UNITS_HEIGHT ; cols++){
+            let tileColour = game.getTileAtPosition(rows,cols)
+            if (tileColour != null) {
+                ctx.strokeStyle = tileColour;
+                ctx.fillStyle = tileColour;
+                ctx.fillRect(BOARD_UNIT_PIXEL_SIZE*rows , BOARD_UNIT_PIXEL_SIZE*cols , BOARD_UNIT_PIXEL_SIZE, BOARD_UNIT_PIXEL_SIZE);
             }
-                    
-        
+        }
     }
+}
