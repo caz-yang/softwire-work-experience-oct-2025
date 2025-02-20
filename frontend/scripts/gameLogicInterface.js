@@ -204,7 +204,7 @@ export default function createGame(initialGameState = emptyGameState) {
 		 */
 		
 	    rotateTetrominoClockwise: function() { 
-		 let clockwiseRotated = [[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null]];
+			let clockwiseRotated = new Array(4).fill(new Array(4).fill(null))
 			
 			console.log("Rotate clockwise");
 			let n = 4;
