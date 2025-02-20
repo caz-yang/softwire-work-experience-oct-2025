@@ -10,6 +10,9 @@ export const Tetromino = {
 	S_Piece: "S_Piece",
 	Z_Piece: "Z_Piece",
 	T_Piece: "T_Piece",
+
+
+
 };
 
 const TetrominoShapes = {
@@ -270,15 +273,31 @@ export default function createGame(initialGameState = emptyGameState) {
 		/**
 		 * Rotate the current tetromino clockwise 90 degrees
 		 */
-		rotateTetrominoClockwise: function() {
-
+		
+	    rotateTetrominoClockwise: function() { 
+			let clockwiseRotated = new Array(4).fill(new Array(4).fill(null))
+			
+			console.log("Rotate clockwise");
+			let n = 4; 
+			for (let activeRowIndex = 0; activeRowIndex < n; activeRowIndex++) {
+				for (let activeColumnIndex = 0; activeColumnIndex < n; activeColumnIndex++) {
+					clockwiseRotated[activeColumnIndex][n-1-activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
+				}
+			}
 		},
 
 		/**
 		 * Rotate the current tetromino anti-clockwise 90 degrees
 		 */
 		rotateTetrominoAntiClockwise: function() {
-
+			let anticlockwiseRotated = new Array(4).fill(new Array(4).fill(null))
+         console.log("Rotate anti-clockwise");
+		 let n=4;
+		 for (let activeRowIndex=0; activeRowIndex<n; activeRowIndex++) {
+			 for (let activeColumnIndex=0; activeColumnIndex<n; activeColumnIndex++) {
+				anticlockwiseRotated[n-1-activeColumnIndex][activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
+			 }
+		 }
 		},
 
 		/**
@@ -326,6 +345,5 @@ export default function createGame(initialGameState = emptyGameState) {
 		},
 
 	};
-
 	return tetrisGame;
 };
