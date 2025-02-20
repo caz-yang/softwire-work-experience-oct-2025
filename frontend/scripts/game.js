@@ -15,9 +15,6 @@ function initialiseGame() {
         if (event.key == "c") {
             game.holdCurrentTetromino()
         }
-
-
-
     });
 
             
