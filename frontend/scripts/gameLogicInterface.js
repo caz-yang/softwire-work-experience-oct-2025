@@ -246,6 +246,18 @@ export default function createGame(initialGameState = emptyGameState) {
 
 		},
 
+		updateActiveTetromino: function() {
+			this.gameState.activeTetromino.name = this.gameState.upcomingTetrominoes.shift()
+			this.gameState.activeTetromino.tiles = TetrominoShapes[this.gameState.activeTetromino.name]
+			this.gameState.activeTetromino.position.x = (BOARD_UNITS_WIDTH - 4) / 2
+			this.gameState.activeTetromino.position.y = BOARD_UNITS_HEIGHT - 1
+			this.gameState.activeTetromino.colour = getRandomColour()
+
+				// add tetromino to list of upcoming ones
+			this.gameState.upcomingTetrominoes.push(getRandomTetromino())
+		}
+
+
 		/**
 		 * Check for any full rows in the game board and clear them, also updates score
 		 */
@@ -263,6 +275,7 @@ export default function createGame(initialGameState = emptyGameState) {
 				}
 			}
 		},
+
 	};
 
 	return tetrisGame;

@@ -36,4 +36,5 @@ function checkGameOver(game) {
 
 function updateScoreDisplay(game) {
     document.getElementById("score").textContent=game.getScore()
+
 }
