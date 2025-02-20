@@ -6,30 +6,28 @@ body {
     display: flex;
     justify-content: center;
     padding: 5px;
+}
 
-    .game-component-container {
-        border: 3px solid black;
-        border-radius: 3px;
-        margin: 5px;
-    }
+.game-component-container {
+    border: 3px solid black;
+    border-radius: 3px;
+    margin: 5px;
+}
 
-    #game-grid {
-        background-color: lightblue;
-    }
+#game-grid {
+    background-color: lightblue;
+}
 
-    #game-sidebar {
-        flex-direction: column;
+#game-sidebar {
+    flex-direction: column;
+}
+#upcoming-tetromino-container {
+    width: 200px;
+    height: 300px;
+}
 
-        #upcoming-pieces-container {
-            background-color: lightpink;
-        }
-    
-        #score-container {
-            padding: 5px;
-            background-color: lightgray;
-        }
-
-    }
-
+#score-container {
+    padding: 5px;
+    background-color: lightgray;
 }
 
