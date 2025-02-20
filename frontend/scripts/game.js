@@ -6,6 +6,11 @@ initialiseGame();
 
 function initialiseGame() {
     let game = createGame();
+    console.log(game);
+
+    drawGrid();
+    updateScoreDisplay();
+
 
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
@@ -18,10 +23,6 @@ function initialiseGame() {
         }
     });
 
-    drawGrid();
-    
-    console.log(game);
-
     window.setInterval(() => {
         game.gameTick();
         refreshGameDisplay(game);
@@ -33,6 +34,6 @@ function checkGameOver(game) {
 
 }
 
-function updateScoreDisplay(gameScore) {
+function updateScoreDisplay() {
     document.getElementById("score").textContent=game.getScore()
 }
