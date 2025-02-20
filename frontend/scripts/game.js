@@ -8,5 +8,6 @@ function initialiseGame() {
 
     drawGrid();
 
+
     console.log(game);
 }
