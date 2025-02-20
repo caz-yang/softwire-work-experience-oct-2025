@@ -1,4 +1,4 @@
-import { BOARD_UNITS_HEIGHT, BOARD_UNITS_WIDTH } from "./gameUI.js"
+import { BOARD_UNITS_HEIGHT, BOARD_UNITS_WIDTH, drawTiles } from "./gameUI.js"
 
 const SCORE_PER_ROW_CLEAR = 100
 
@@ -159,30 +159,25 @@ export default function createGame(initialGameState = emptyGameState) {
 		 *
 		 * Possible colours: "cyan, blue, orange, yellow, green, purple, red"
 		 */
-		 getTileAtPosition: function(x, y) {
-			for (let rows = 0 ; rows < emptyGameState.activeTetromino[x] ; rows++) {
-				for (let cols = 0 ; cols < emptyGameState.activeTetromino[y] ; cols++){
-					if (emptyGameState.activeTetromino[x][y] == 0) {
-						console.log("This is null")
+		getTileAtPosition: function(x, y) {
+			for (let row = 0; row < 4; row++) {
+				for (let col = 0; col < 4; col++) {
+					if (this.gameState.activeTetromino.tiles[row][col] === 1) {
+						if (x === this.gameState.activeTetromino.position.x + col &&
+							y === this.gameState.activeTetromino.position.y - row) {
+							return this.gameState.activeTetromino.colour;
+						}
 					}
-					else {
-						console.log("This is something")
-					}
-
+				}
 			}
-		}		
-			if (this.gameState.playfield[x][y] == null ) {
-				const tileColor = this.gameState.playfield[x][y]
-				return tileColor
+		
+			if (this.gameState.playfield[y] && this.gameState.playfield[y][x] !== null) {
+				return this.gameState.playfield[y][x];
 			}
-			if (1==1){
-				emptyGameState.activeTetromino[x][y]
-			}
-
-			else  {				
-				return null
-			}
+		
+			return null;
 		},
+		
 
 		/**
 		 * Return the score of the game
