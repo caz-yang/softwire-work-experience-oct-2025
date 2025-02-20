@@ -1,4 +1,4 @@
-import { BOARD_UNITS_HEIGHT, BOARD_UNITS_WIDTH } from "./gameUI.js"
+import { BOARD_UNITS_HEIGHT, BOARD_UNITS_WIDTH, drawTiles } from "./gameUI.js"
 
 const SCORE_PER_ROW_CLEAR = 100
 
@@ -10,9 +10,6 @@ export const Tetromino = {
 	S_Piece: "S_Piece",
 	Z_Piece: "Z_Piece",
 	T_Piece: "T_Piece",
-
-
-
 };
 
 export const TetrominoShapes = {
@@ -104,8 +101,6 @@ export default function createGame(initialGameState = emptyGameState) {
 	const tetrisGame = {
 		gameState: initialGameState,
 
-		
-		gameState: initialGameState,
 		/**
 		 * Checks if a new active tetromino state is possible
 		 *
@@ -152,7 +147,7 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * @return {boolean}
 		 */
 		isGameOver: function() {
-			return false
+			return this.gameState.isGameOver;
 		},
 
 		/**
@@ -163,16 +158,31 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Possible colours: "cyan, blue, orange, yellow, green, purple, red"
 		 */
 		getTileAtPosition: function(x, y) {
-
+			for (let row = 0; row < 4; row++) {
+				for (let col = 0; col < 4; col++) {
+					if (this.gameState.activeTetromino.tiles[row][col] === 1) {
+						if (x === this.gameState.activeTetromino.position.x + col &&
+							y === this.gameState.activeTetromino.position.y - row) {
+							return this.gameState.activeTetromino.colour;
+						}
+					}
+				}
+			}
+		
+			if (this.gameState.playfield[y] && this.gameState.playfield[y][x] !== null) {
+				return this.gameState.playfield[y][x];
+			}
+		
+			return null;
 		},
+		
 
 		/**
 		 * Return the score of the game
 		 * @return {int}
 		 */
 		getScore: function() {
-			return this.gameState.score
-
+			return this.gameState.score;
 		},
 
 		/**
@@ -191,12 +201,8 @@ export default function createGame(initialGameState = emptyGameState) {
 		 */
 
 		getUpcomingTetrominoes: function() {
-			id= console.log(upcomingTetrominoes)
-			console.log(game.gameState.upcomingTetrominoes);	
-
-		}				
-		,
-	
+			return this.gameState.upcomingTetrominoes;
+		},
 		
 
 		/**

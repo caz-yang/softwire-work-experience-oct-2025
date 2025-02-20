@@ -1,5 +1,5 @@
 import createGame from "./gameLogicInterface.js";
-import { drawGrid, refreshGameDisplay } from "./gameUI.js";
+import { drawGrid, refreshGameDisplay, drawTiles } from "./gameUI.js";
 import{ drawUpcomingTetrominoes} from "./gameUI.js"
 
 initialiseGame();
@@ -10,9 +10,11 @@ function initialiseGame() {
     var audio = new Audio('../assets/Tetris.mp3')
     audio.play();
     audio.loop = true
+
     drawGrid();
     drawUpcomingTetrominoes(game)
     updateScoreDisplay(game);
+    drawTiles(game);
 
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
@@ -27,7 +29,6 @@ function initialiseGame() {
            console.log("c has been pressed");  
           game.holdCurrentTetromino()
         }
-
         if (event.key === "ArrowDown") {
             console.log("Down arrow has been pressed");
             game.moveDown(); 
@@ -57,4 +58,3 @@ function checkGameOver(game) {
 function updateScoreDisplay(game) {
     document.getElementById("score").textContent=game.getScore()
 }
-
