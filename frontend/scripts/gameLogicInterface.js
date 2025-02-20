@@ -188,17 +188,13 @@ export default function createGame(initialGameState = emptyGameState) {
 		 */
 
 		moveLeft: function() {
-			console.log("moveleft function is being called")
 			if (this.isStateValid({
 				...this.gameState.activeTetromino,
 				position: {
 					x: this.gameState.activeTetromino.position.x - 1,
-					y: this.gameState.activeTetromino.position.y
-			
+					y: this.gameState.activeTetromino.position.y		
 				}
-		
-			})) 
-			
+			})) 			
 			{
 				this.gameState.activeTetromino.position.x -= 1;
 			}
@@ -209,21 +205,16 @@ export default function createGame(initialGameState = emptyGameState) {
 		 */
 		
 		moveRight: function() {
-			console.log("moveright function is being called")
 			if (this.isStateValid({
 				...this.gameState.activeTetromino,
 				position: {
 					x: this.gameState.activeTetromino.position.x + 1,
 					y: this.gameState.activeTetromino.position.y
-
-
 				}
-
 			}))
 			{
 				this.gameState.activeTetromino.position.x += 1;
 			}
-
 		},
 
 		/**
