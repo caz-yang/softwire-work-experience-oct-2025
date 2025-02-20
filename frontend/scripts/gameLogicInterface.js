@@ -121,7 +121,7 @@ export default function createGame(initialGameState = emptyGameState) {
 			this.scoreRows();
 		},
 
-		/**
+		/**for the tsho
 		 * Return if the game is over
 		 * @return {boolean}
 		 */
