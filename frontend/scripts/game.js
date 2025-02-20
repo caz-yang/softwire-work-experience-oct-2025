@@ -1,8 +1,8 @@
 import createGame from "./gameLogicInterface.js";
 import { drawGrid, refreshGameDisplay } from "./gameUI.js";
 import{ drawUpcomingTetrominoes} from "./gameUI.js"
-initialiseGame();
 
+initialiseGame();
 function initialiseGame() {
     let game = createGame();
     console.log(game);
@@ -14,7 +14,6 @@ function initialiseGame() {
     drawUpcomingTetrominoes(game)
     updateScoreDisplay(game);
 
-
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
             console.log("Left arrow has been pressed");
@@ -24,6 +23,11 @@ function initialiseGame() {
             console.log("Right arrow has been pressed");
             game.moveRight();
         }
+        if (event.key == "c") {
+           console.log("c has been pressed");  
+          game.holdCurrentTetromino()
+        }
+
         if (event.key === "ArrowDown") {
             console.log("Down arrow has been pressed");
             game.moveDown(); 
@@ -36,7 +40,6 @@ function initialiseGame() {
             console.log("X key has been pressed");
             game.rotateTetrominoAntiClockwise();
         }
-      
     });
 
 
