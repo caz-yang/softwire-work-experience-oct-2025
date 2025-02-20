@@ -19,7 +19,12 @@ export function drawGrid(){
 }
 
 export function refreshGameDisplay(game) {
-    
+    clearGrid('game-grid');
+    clearGrid('upcoming-pieces-canvas');
+
+    drawGrid();
+    drawTiles(game);
+    drawUpcomingTetrominoes(game);
 }
 
 function addVerticalGameLines(gameContext) {
@@ -36,8 +41,10 @@ function addHorizontalGameLines(gameContext) {
     }
 }
 
-function clearGrid() {
-    
+function clearGrid(canvasId) {
+    var gameGridCanvas = document.getElementById(canvasId);
+    var gameGridContext = gameGridCanvas.getContext("2d");
+    gameGridContext.clearRect(0, 0, gameGridCanvas.width, gameGridCanvas.height);
 }
 
 export function drawTiles(game) {

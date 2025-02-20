@@ -77,7 +77,7 @@ function getRandomColour() {
 
 export const emptyGameState = {
 	// A 10x20 array full of null values
-	playfield: new Array(BOARD_UNITS_HEIGHT).fill(new Array(BOARD_UNITS_WIDTH).fill(null)),
+	playfield: new Array(BOARD_UNITS_HEIGHT).fill(null).map(() => new Array(BOARD_UNITS_WIDTH).fill(null)),
 	score: 0,
 	upcomingTetrominoes: Array.from({length: 3}, getRandomTetromino),
 	heldTetromino: null,
@@ -276,10 +276,9 @@ export default function createGame(initialGameState = emptyGameState) {
 		 */
 		
 	    rotateTetrominoClockwise: function() { 
-			let clockwiseRotated = new Array(4).fill(new Array(4).fill(null))
-			
-			console.log("Rotate clockwise");
-			let n = 4; 
+			let clockwiseRotated = new Array(4).fill(null).map(() => new Array(4).fill(null))
+			let n = 4;
+
 			for (let activeRowIndex = 0; activeRowIndex < n; activeRowIndex++) {
 				for (let activeColumnIndex = 0; activeColumnIndex < n; activeColumnIndex++) {
 					clockwiseRotated[activeColumnIndex][n-1-activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
@@ -291,14 +290,14 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Rotate the current tetromino anti-clockwise 90 degrees
 		 */
 		rotateTetrominoAntiClockwise: function() {
-			let anticlockwiseRotated = new Array(4).fill(new Array(4).fill(null))
-         console.log("Rotate anti-clockwise");
-		 let n=4;
-		 for (let activeRowIndex=0; activeRowIndex<n; activeRowIndex++) {
-			 for (let activeColumnIndex=0; activeColumnIndex<n; activeColumnIndex++) {
-				anticlockwiseRotated[n-1-activeColumnIndex][activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
-			 }
-		 }
+			let anticlockwiseRotated = new Array(4).fill(null).map(() => new Array(4).fill(null))
+			let n = 4;
+
+			for (let activeRowIndex=0; activeRowIndex<n; activeRowIndex++) {
+				for (let activeColumnIndex=0; activeColumnIndex<n; activeColumnIndex++) {
+					anticlockwiseRotated[n-1-activeColumnIndex][activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
+				}
+			}
 		},
 
 		/**

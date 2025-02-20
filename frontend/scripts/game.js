@@ -18,28 +18,28 @@ function initialiseGame() {
 
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
-            console.log("Left arrow has been pressed");
             game.moveLeft();
+            refreshGameDisplay(game);
         }
         if (event.key === "ArrowRight"){
-            console.log("Right arrow has been pressed");
             game.moveRight();
+            refreshGameDisplay(game);
         }
         if (event.key == "c") {
-           console.log("c has been pressed");  
-          game.holdCurrentTetromino()
+            game.holdCurrentTetromino()
+            refreshGameDisplay(game);
         }
         if (event.key === "ArrowDown") {
-            console.log("Down arrow has been pressed");
-            game.moveDown(); 
+            game.moveDown();
+            refreshGameDisplay(game);
         }
         if (event.key === "ArrowUp") {
-            console.log("Up arrow has been pressed");
             game.rotateTetrominoClockwise();
+            refreshGameDisplay(game);
         }
         if (event.key === "x") {
-            console.log("X key has been pressed");
             game.rotateTetrominoAntiClockwise();
+            refreshGameDisplay(game);
         }
     });
 
