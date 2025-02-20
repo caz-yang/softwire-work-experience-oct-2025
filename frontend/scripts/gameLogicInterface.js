@@ -200,11 +200,38 @@ export default function createGame(initialGameState = emptyGameState) {
 				this.gameState.activeTetromino.position.x -= 1;
 			}
 		},
+          
+
+        moveDown: function() {
+			let { x, y } = this.gameState.activeTetromino.position;
+			let newPosition = { x, y: y - 1 };
+			let newState = {	...this.gameState.activeTetromino, position: newPosition
+			};
+			if (this.isStateValid(newState)) {
+				this.gameState.activeTetromino.position = newState; 
+			}
+		},          
+
+		moveDown: function() {
+			let { x, y } = this.gameState.activeTetromino.position;
+			let newPosition = { x, y: y - 1 };
+			let newState = {
+				...this.gameState.activeTetromino,
+				position: {
+					x: newPosition.x,
+					y: newPosition.y
+				}
+			}
+
+			if (this.isStateValid(newState)) {
+				this.gameState.activeTetromino = newState;
+			}
+		},
+
 
 		/**
 		 * Move the current tetromino right 1 tile
 		 */
-		
 		moveRight: function() {
 			if (this.isStateValid({
 				...this.gameState.activeTetromino,
@@ -212,8 +239,7 @@ export default function createGame(initialGameState = emptyGameState) {
 					x: this.gameState.activeTetromino.position.x + 1,
 					y: this.gameState.activeTetromino.position.y
 				}
-			}))
-			{
+			})) {
 				this.gameState.activeTetromino.position.x += 1;
 			}
 		},
@@ -255,7 +281,7 @@ export default function createGame(initialGameState = emptyGameState) {
 
 				// add tetromino to list of upcoming ones
 			this.gameState.upcomingTetrominoes.push(getRandomTetromino())
-		}
+		},
 
 
 		/**
