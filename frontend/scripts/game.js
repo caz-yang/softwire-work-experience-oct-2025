@@ -9,9 +9,9 @@ function initialiseGame() {
 
     drawGrid();
 
-    function updateScoreDisplay(gameScore) {
-        document.getElementById("score").textContent=game.getScore()
-    }
-
     console.log(game);
+}
+
+function updateScoreDisplay(gameScore) {
+    document.getElementById("score").textContent=game.getScore()
 }
