@@ -18,7 +18,7 @@ router.get(
 );
 
 router.post(
-  'api/scores',
+  '/api/save-score',
   (req, res) => {
     controller.postScore(res, req.body);
   }
