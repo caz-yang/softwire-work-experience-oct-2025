@@ -244,11 +244,10 @@ export default function createGame(initialGameState = emptyGameState) {
 		 */
 		holdCurrentTetromino: function() {
 			if (this.gameState.heldTetromino == null){
-				this.gameState.updateActiveTetromino()
+				this.updateActiveTetromino()
 			} else {
 				this.gameState.activeTetromino, this.gameState.heldTetromino = this.gameState.heldTetromino, this.gameState.activeTetromino
 			}
-
 		},
 
 		updateActiveTetromino: function() {
