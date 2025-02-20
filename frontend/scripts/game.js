@@ -24,5 +24,3 @@ function checkGameOver(game) {
         window.location.href = `gameOver.html?score=${score}`; 
     }
 }
-
-// so in this game.js file, update the checkGame over function so that when the game ends, it redirects the player to the game over page and their final score is also passed as a URL parameter
