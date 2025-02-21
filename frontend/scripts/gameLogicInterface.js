@@ -90,7 +90,7 @@ function getNewActiveTetromino(tetromino) {
 		tiles: TetrominoShapes[tetromino],
 		position: {
 			x: (BOARD_UNITS_WIDTH - 4) / 2,
-			y: BOARD_UNITS_HEIGHT - 1, // Top row is reserved for game over
+			y: 3, // Top row is reserved for game over
 		},
 		colour: getRandomColour()
 	}
