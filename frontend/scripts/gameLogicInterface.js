@@ -329,12 +329,12 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Rotate the current tetromino anti-clockwise 90 degrees
 		 */
 		rotateTetrominoAntiClockwise: function() {
-			let anticlockwiseRotated = new Array(4).fill(null).map(() => new Array(4).fill(null))
+			let antiClockwiseRotated = new Array(4).fill(null).map(() => new Array(4).fill(null))
 			let n = 4;
 
 			for (let activeRowIndex=0; activeRowIndex<n; activeRowIndex++) {
 				for (let activeColumnIndex=0; activeColumnIndex<n; activeColumnIndex++) {
-					anticlockwiseRotated[n-1-activeColumnIndex][activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
+					antiClockwiseRotated[n-1-activeColumnIndex][activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
 				}
 			}
 
