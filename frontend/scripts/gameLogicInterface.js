@@ -273,7 +273,7 @@ export default function createGame(initialGameState = emptyGameState) {
           
 		moveDown: function() {
 			let { x, y } = this.gameState.activeTetromino.position;
-			let newPosition = { x, y: y - 1 };
+			let newPosition = { x, y: y + 1 };
 			let newState = {
 				...this.gameState.activeTetromino,
 				position: {
@@ -316,6 +316,13 @@ export default function createGame(initialGameState = emptyGameState) {
 					clockwiseRotated[activeColumnIndex][n-1-activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
 				}
 			}
+
+			if (this.isStateValid({
+				...this.gameState.activeTetromino,
+				tiles: clockwiseRotated,
+			})) {
+				this.gameState.activeTetromino.tiles = clockwiseRotated;
+			}
 		},
 
 		/**
@@ -329,6 +336,13 @@ export default function createGame(initialGameState = emptyGameState) {
 				for (let activeColumnIndex=0; activeColumnIndex<n; activeColumnIndex++) {
 					anticlockwiseRotated[n-1-activeColumnIndex][activeRowIndex] = this.gameState.activeTetromino.tiles[activeRowIndex][activeColumnIndex];
 				}
+			}
+
+			if (this.isStateValid({
+				...this.gameState.activeTetromino,
+				tiles: antiClockwiseRotated,
+			})) {
+				this.gameState.activeTetromino.tiles = antiClockwiseRotated;
 			}
 		},
 
@@ -370,7 +384,7 @@ export default function createGame(initialGameState = emptyGameState) {
 			let cleared_rows = 0;
 
 			// iterate in reverse as removing elements during loop
-			for (let row_ind = BOARD_UNITS_HEIGHT - 1; row_ind >= 0; row_ind--) {
+			for (let row_ind = 0; row_ind <= BOARD_UNITS_HEIGHT - 1; row_ind++) {
 				let row = this.gameState.playfield[row_ind];
 
 				let all_filled = !(row.includes(null));
@@ -378,7 +392,7 @@ export default function createGame(initialGameState = emptyGameState) {
 				if (all_filled) {
 					cleared_rows++;
 					this.gameState.playfield.splice(row_ind, 1);  // remove row
-					this.gameState.playfield.push(new Array(BOARD_UNITS_WIDTH).fill(null));  // add empty row
+					this.gameState.playfield.unshift(new Array(BOARD_UNITS_WIDTH).fill(null));  // add empty row
 				}
 			}
 
