@@ -350,7 +350,28 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Instantly drop the current tetromino as far as it goes and lock it in place
 		 */
 		instantDropTetromino: function() {
+			let this_row_valid = this.isStateValid(this.gameState.activeTetromino);
 
+			while (this_row_valid) {
+				this_row_valid = this.isStateValid(this.gameState.activeTetromino);
+				while (this_row_valid) {
+					this.gameState.activeTetromino.position.y += 1;
+					let next_row_valid = this.isStateValid(this.gameState.activeTetromino);
+					if (!next_row_valid) {
+						this.gameState.activeTetromino.position.y -= 1;
+						console.log(this.gameState.activeTetromino.position)
+						this_row_valid = false;
+					}
+				}
+			}
+			
+			this.placeActiveTetromino()
+			this.updateActiveTetromino();
+			this.scoreRows();
+
+			if (!this.isStateValid(this.gameState.activeTetromino)) {
+				this.gameState.isGameOver = true;
+			}
 		},
 
 		/**

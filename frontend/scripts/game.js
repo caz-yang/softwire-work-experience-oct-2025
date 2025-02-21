@@ -47,6 +47,10 @@ function initialiseGame() {
             game.rotateTetrominoAntiClockwise();
             refreshGameDisplay(game);
         }
+        if (event.key === " ") {
+            game.instantDropTetromino();
+            refreshGameDisplay(game);
+        }
     });
 
 
