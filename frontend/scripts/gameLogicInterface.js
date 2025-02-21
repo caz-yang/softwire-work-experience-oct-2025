@@ -81,21 +81,20 @@ export const emptyGameState = {
 	score: 0,
 	upcomingTetrominoes: Array.from({length: 3}, getRandomTetromino),
 	heldTetromino: null,
-	activeTetromino: {
-		...(function() {
-			const tetromino = getRandomTetromino();
-			return {
-				name: tetromino,
-				tiles: TetrominoShapes[tetromino]
-			};
-		}()),
+	activeTetromino: getNewActiveTetromino(getRandomTetromino())
+};
+
+function getNewActiveTetromino(tetromino) {
+	return {
+		name: tetromino,
+		tiles: TetrominoShapes[tetromino],
 		position: {
 			x: (BOARD_UNITS_WIDTH - 4) / 2,
 			y: BOARD_UNITS_HEIGHT - 1, // Top row is reserved for game over
 		},
 		colour: getRandomColour()
 	}
-};
+}
 
 export default function createGame(initialGameState = emptyGameState) {
 	const tetrisGame = {
@@ -311,22 +310,23 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Hold the current tetromino, swapping it for any currently held one
 		 */
 		holdCurrentTetromino: function() {
-			if (this.gameState.heldTetromino == null){
+			if (this.gameState.heldTetromino == null) {
+				this.gameState.heldTetromino = this.gameState.activeTetromino.name
 				this.updateActiveTetromino()
 			} else {
-				this.gameState.activeTetromino, this.gameState.heldTetromino = this.gameState.heldTetromino, this.gameState.activeTetromino
+				[
+					this.gameState.activeTetromino,
+					this.gameState.heldTetromino
+				] = [
+					getNewActiveTetromino(this.gameState.heldTetromino),
+					this.gameState.activeTetromino.name
+				]
 			}
 		},
 
 		updateActiveTetromino: function() {
-			this.gameState.activeTetromino.name = this.gameState.upcomingTetrominoes.shift()
-			this.gameState.activeTetromino.tiles = TetrominoShapes[this.gameState.activeTetromino.name]
-			this.gameState.activeTetromino.position.x = (BOARD_UNITS_WIDTH - 4) / 2
-			this.gameState.activeTetromino.position.y = BOARD_UNITS_HEIGHT - 1
-			this.gameState.activeTetromino.colour = getRandomColour()
-
-				// add tetromino to list of upcoming ones
-			this.gameState.upcomingTetrominoes.push(getRandomTetromino())
+			this.gameState.activeTetromino = getNewActiveTetromino(this.gameState.upcomingTetrominoes.shift());
+			this.gameState.upcomingTetrominoes.push(getRandomTetromino());
 		},
 
 
