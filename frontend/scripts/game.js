@@ -49,6 +49,7 @@ function initialiseGame() {
         }
         if (event.key === " ") {
             game.instantDropTetromino();
+            refreshGameDisplay(game);
         }
     });
 
