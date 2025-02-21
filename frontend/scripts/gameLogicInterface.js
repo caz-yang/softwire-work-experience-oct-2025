@@ -419,7 +419,7 @@ export default function createGame(initialGameState = emptyGameState) {
 
 				const SCORE_PER_ROW = 40;	
 				const SCORE_MULTIPLIER = [0, 1, 2.5, 7.5, 300];
-				if(cleared_rows > 0 && cleared_rows < 4) {
+				if(cleared_rows > 0 && cleared_rows <= 4) {
 					this.gameState.score += SCORE_PER_ROW * SCORE_MULTIPLIER[cleared_rows];
 				}
 			
