@@ -48,6 +48,7 @@ function initialiseGame() {
         game.gameTick();
         refreshGameDisplay(game);
         checkGameOver(game);
+        updateScoreDisplay(game);
     }, 1000);
 }
 

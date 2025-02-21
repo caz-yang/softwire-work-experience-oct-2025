@@ -138,7 +138,40 @@ export default function createGame(initialGameState = emptyGameState) {
 		 * Progress the game forward one timestep
 		 */
 		gameTick: function() {
+			let old_y = this.gameState.activeTetromino.position.y;
+
+			this.moveDown();  // moveDown already has valid state detection
+
+			if (this.gameState.activeTetromino.position.y == old_y) {  // tetromino couldnt move down
+				this.placeActiveTetromino();
+
+				this.updateActiveTetromino();
+			}
+
 			this.scoreRows();
+
+			// gamover if active tetromino collides with tiles
+			if (!this.isStateValid(this.gameState.activeTetromino)) {
+				this.gameState.isGameOver = true;
+			}
+		},
+
+		/**
+		 * Copies the active tetromino onto the board
+		 */
+		placeActiveTetromino: function() {
+			for (let row = 0; row < 4; row++) {
+				for (let col = 0; col < 4; col++) {
+					if (this.gameState.activeTetromino.tiles[row][col] == 0) {
+						continue;
+					}
+
+					let playfield_col = this.gameState.activeTetromino.position.x + col;
+					let playfield_row = this.gameState.activeTetromino.position.y - row;
+
+					this.gameState.playfield[playfield_row][playfield_col] = this.gameState.activeTetromino.colour;
+				}
+			}
 		},
 
 		/**
