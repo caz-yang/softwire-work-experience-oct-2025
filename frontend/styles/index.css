@@ -1,0 +1,38 @@
+body {
+    color: white;
+    background-color: black;
+    font-size:3em;
+    font-family: serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    margin:0;
+    padding: 10px;
+    background-image: url(https://t4.ftcdn.net/jpg/02/12/34/87/360_F_212348726_9aFVfkGDmtghn72luc5zIGpOJgQcuEVu.jpg) ;
+}
+
+.textElements {
+    font-family: "Press Start 2P", serif;
+    color: white;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.buttonElements {
+    opacity: 80%;
+    color: white;
+    background-color: rgb(59, 59, 59);
+    padding:20px;
+    border-radius: 30%;
+    border: 5em;
+
+}
+
+.buttonElements:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.2);
+}
