@@ -142,3 +142,16 @@ Once you are happy with your code, you can open GitHub in a browser and do the f
 ### Further reading for backend development
 - [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 - [HTTP response codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+## Working on Tetris after the work experience week
+### To Keep Working On Tetris Locally:
+
+First, make sure you have all the required software on your laptop (See the Set up section at the top).
+Next create your own repository:
+
+1. Fork the repository (click the "fork" button in the top right of this repository main page on Github). This will create your own GitHub repository with the same code as this one, but make it yours!
+2. Find the URL of your forked repository (on your repo's main page, click the green "Code" button and copy the `https` URL)
+3. On your computer, use the terminal to go to the folder you want to download the repository in. You can use the `cd` command e.g. `cd /someFolder/anotherFolder`
+4. Run `git clone <url-of-your-forked-repo>`.
+5. Navigate to the cloned repo using cd
+6. You should now have your own version of the code you can work on and push to.
