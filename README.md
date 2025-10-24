@@ -2,19 +2,18 @@
 
 ## General Setup
 1. Sign into your/create a new [GitHub](https://github.com/signup) account.
-2. Send your GitHub username and email to `xak.sen@softwire.com`
+2. Send your GitHub username and email to `carolyn.barker@softwire.com`
 3. Sign into your/create a new [Trello](https://id.atlassian.com/signup?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3FreturnUrl%3D%252F%26display%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D%26aaOnboarding%3D%26updateEmail%3D%26traceId%3D%26ssoVerified%3D%26createMember%3Dtrue%26jiraInviteLink%3D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D) account
-4. Here is the [Trello board](https://trello.com/invite/b/67ab6afb59b643271d16d90a/ATTIea18b0eacececb17b89dca60b2976d4dDB9CD017/softwire-work-exp-feb-2025). We will be using this to manage the progress of your project - make sure you have access to view it.
-5. Check you can view [this deployed site](https://softwire-work-experience-feb-2025-opal.vercel.app/). It should be a blank site with `Hello World!` written in black text in the top left.
-6. Install [VSCode](https://code.visualstudio.com/download) - you can choose a different IDE if you've used it before but it may cause you some issues with the rest of the setup.
-7. Install [Git](https://git-scm.com/downloads/win)
-8. Install [docker](https://docs.docker.com/desktop/setup/install/windows-install/). You will need to restart your computer. Afterwards, you'll automatiically download WSL as part of the docker installation. Once that is installed, open the Docker Desktop App and it should say "Your running containers show up here" - this means it is ready to go!
-9. **[Optional]** Install your preferred search engine (e.g. Chrome, Firefox)
+4. Here is the [Trello board](https://trello.com/invite/b/68f90d7df597842a1fe56dd1/ATTIdf85997920970a691fd1bc6764e27f441C9FB413/softwire-work-experience-oct-2025). We will be using this to manage the progress of your project - make sure you have access to view it.
+5. Install [VSCode](https://code.visualstudio.com/download) - you can choose a different IDE if you've used it before but it may cause you some issues with the rest of the setup.
+6. Install [Git](https://git-scm.com/downloads/win)
+7. Install [docker](https://docs.docker.com/desktop/setup/install/windows-install/). You will need to restart your computer. Afterwards, you'll automatiically download WSL as part of the docker installation. Once that is installed, open the Docker Desktop App and it should say "Your running containers show up here" - this means it is ready to go!
+8. **[Optional]** Install your preferred search engine (e.g. Chrome, Firefox)
 
-> Don't be scared to ask Xak or Wendi for help :)
+> Don't be scared to ask Carolyn or Caz for help :)
 
 ## Connect Git to your GitHub account
-So that you can contribute to the project, you have to connext Git to your own account.
+So that you can contribute to the project, you have to connect Git to your own account.
 1. Open Powershell - this is where you can give commands to instruct your computer on setting up your account configuration settings as well as things like setting up the repository!
 2. Run the following commands in the Powershell command line
 ```
@@ -31,7 +30,7 @@ git config --global user.email
 We all need to create a local copy of the code before you can make changes to it on your computer.
 1. Open Powershell
 2. Navigate to your local documents folder using the commands `ls` to list the possible paths to follow and `cd <PATH NAME>` to choose a path to follow. 
-3. Find the repository web URL from the GitHub repository as shown in the image below: `GitHub repository > Code > Copy url to clipboard`. The Tetris repository, which you will need to clone for the project, can be found at [this URL](https://github.com/XakSenSoftwire/softwire-work-experience-feb-2025).
+3. Find the repository web URL from the GitHub repository as shown in the image below: `GitHub repository > Code > Copy url to clipboard`. The Tetris repository, which you will need to clone for the project, can be found at [this URL](https://github.com/carolynbarker/softwire-work-experience-oct-2025/).
 
 ![Clone repo image](course-assets/clone-repo.png)
 
@@ -43,9 +42,9 @@ git clone <REPO WEB URL>
 ## Open the project in VS Code
 On the same powershell window, in the same directory, execute the following command
 ```
-code softwire-work-experience-feb-2025
+code softwire-work-experience-oct-2025
 ```
-This tells VS Code (`code`) to open the new folder `softwire-work-experience-feb-2025`.
+This tells VS Code (`code`) to open the new folder `softwire-work-experience-oct-2025`.
 You should now see the project in VS Code.
 
 It is important that when your VSCode is open, turn on Autosave to make Docker's hotreload function as intended. Go to `File > Autosave`. There should be a tick displayed to show it is on.
@@ -62,7 +61,7 @@ Now when you open the Source Control tab on the left, you have the option to see
 
 ## Running Tetris Locally
 1. Open the Docker Desktop App 
-2. Navigate to the root of the repository (i.e. `..\softwire-work-experience-feb-2025`).
+2. Navigate to the root of the repository (i.e. `..\softwire-work-experience-oct-2025`).
 3. Run the command `$ docker-compose up` in the terminal to start all 3 services (frontend, backend, database)
 4. Check you have access to the frontend by navigating to `http://localhost:8080` in your browser
 
@@ -109,18 +108,17 @@ Once you are happy with your code, you can open GitHub in a browser and do the f
     - compare: `your-own-feature-branch-name`
 - Click "Create pull request"
 - Add a sensible title and description of your changes, then click "Create pull request"
-- Either Xak or Wendi will then review your changes and either make some comments or approve it:
+- Either Caz or Carolyn will then review your changes and either make some comments or approve it:
     - If we make comments, you can make the changes on your branch locally and `git push` to update the code in GitHub
     - If we approve it, we can merge it into `main`. Wahey!
 
-**Task:** Set up a pull request called "test-commit-[your-name]". If you can do this, you're set up correctly! Xak, who will be reviewing the pull request, will tell you if its working correctly from his GitHub.
+**Task:** Set up a pull request called "test-commit-[your-name]". If you can do this, you're set up correctly! Carolyn and Caz, who will be reviewing the pull request, will tell you if it's come through correctly in GitHub.
 
 ## Useful Links
 
 ### Project Resources
-- [Trello board](https://trello.com/invite/b/67ab6afb59b643271d16d90a/ATTIea18b0eacececb17b89dca60b2976d4dDB9CD017/softwire-work-exp-feb-2025) - to keep track of tasks and their statuses
-- [Github repository](https://github.com/XakSenSoftwire/softwire-work-experience-feb-2025) - central location for all of our code
-- [Live site](https://softwire-work-experience-feb-2025-git-w-c7f8f8-wendifs-projects.vercel.app/)
+- [Trello board](https://trello.com/b/LSAhMhsp/softwire-work-experience-oct-2025) - to keep track of tasks and their statuses
+- [Github repository](https://github.com/carolynbarker/softwire-work-experience-oct-2025) - central location for all of our code
 
 ### Starting Exercises Links
 - [Free-form coding environment](https://liveweave.com/#)
@@ -155,3 +153,4 @@ Next create your own repository:
 4. Run `git clone <url-of-your-forked-repo>`.
 5. Navigate to the cloned repo using cd
 6. You should now have your own version of the code you can work on and push to.
+
