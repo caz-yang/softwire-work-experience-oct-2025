@@ -2,7 +2,7 @@
 
 ## General Setup
 1. Sign into your/create a new [GitHub](https://github.com/signup) account.
-2. Send your GitHub username and email to `carolyn.barker@softwire.com`
+2. Send your GitHub username and email to `caz.yang@softwire.com`
 3. Sign into your/create a new [Trello](https://id.atlassian.com/signup?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3FreturnUrl%3D%252F%26display%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D%26aaOnboarding%3D%26updateEmail%3D%26traceId%3D%26ssoVerified%3D%26createMember%3Dtrue%26jiraInviteLink%3D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D) account
 4. Here is the [Trello board](https://trello.com/invite/b/68f90d7df597842a1fe56dd1/ATTIdf85997920970a691fd1bc6764e27f441C9FB413/softwire-work-experience-oct-2025). We will be using this to manage the progress of your project - make sure you have access to view it.
 5. Install [VSCode](https://code.visualstudio.com/download) - you can choose a different IDE if you've used it before but it may cause you some issues with the rest of the setup.
@@ -10,7 +10,7 @@
 7. Install [docker](https://docs.docker.com/desktop/setup/install/windows-install/). You will need to restart your computer. Afterwards, you'll automatiically download WSL as part of the docker installation. Once that is installed, open the Docker Desktop App and it should say "Your running containers show up here" - this means it is ready to go!
 8. **[Optional]** Install your preferred search engine (e.g. Chrome, Firefox)
 
-> Don't be scared to ask Carolyn or Caz for help :)
+> Don't be scared to ask Caz or Claire for help :)
 
 ## Connect Git to your GitHub account
 So that you can contribute to the project, you have to connect Git to your own account.
